@@ -1,0 +1,25 @@
+#perent image
+FROM node:17-alpine 
+
+#working directory
+WORKDIR /app
+
+#copy all source code
+COPY . .
+
+#install dependies
+RUN npm install
+
+#prot no on project will run
+EXPOSE 3000
+
+#for running project in container
+CMD ["node","index.js"]
+
+=> ERROR [internal] load metadata for docker.io/library/node:17-alpine                                                                                22.0s 
+------
+ > [internal] load metadata for docker.io/library/node:17-alpine:
+------
+failed to solve with frontend dockerfile.v0: failed to create LLB definition: failed to do request: Head "https://registry-1.docker.io/v2/library/node/manifests/17-alpine": dialing registry-1.docker.io:443 with direct connection: connecting to 34.194.164.123:443: dial tcp 34.194.164.123:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+
+docker run --name myapp_c_nodemon -p 3000:3000 --rm -v C:\EDULAB-S\DEV\api:/app -v /app/node_modules myapp:nodemon
